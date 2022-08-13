@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  asphyxia:
+    build: .
+    environment:
+      - ASPHYXIA_LISTENING_PORT=
+      - ASPHYXIA_BINDING_HOST=
+      - ASPHYXIA_MATCHING_PORT=
+      - ASPHYXIA_DEV_MODE=
+      - ASPHYXIA_PING_IP=
+      - ASPHYXIA_SAVEDATA_DIR=
+    ports:
+      - "10573:10573"
+      - "5700:5700"
+    volumes:
+      - "./asphyxia:/usr/local/share/custom"
