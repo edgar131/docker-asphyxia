@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   asphyxia:
-    build: .
+    image: edgar131/asphyxia:latest
     environment:
       - ASPHYXIA_LISTENING_PORT=
       - ASPHYXIA_BINDING_HOST=
@@ -11,7 +11,7 @@ services:
       - ASPHYXIA_PING_IP=
       - ASPHYXIA_SAVEDATA_DIR=
     ports:
-      - "10573:10573"
+      - "8083:8083"
       - "5700:5700"
     volumes:
       - "./asphyxia:/usr/local/share/custom"
