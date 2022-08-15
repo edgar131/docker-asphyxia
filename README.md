@@ -33,11 +33,13 @@ volumes:
       - "./asphyxia:/usr/local/share/custom"
 ```
 
+You can replace "./asphyxia" with any directory on your machine that contains your config.ini/plugins/savedata directories.
+
 ## Config Override ##
 Place a Asphyxia config.ini file in the directory you have mounted to /usr/local/share/custom
 
 ## Plugin Override ##
-Place a plugin directory in the directory you have mounted to /usr/local/share/custom.  By default the image contains the 0.5 release version of the [official plugins](https://github.com/asphyxia-core/plugins).  Any plugins that get mounted into /usr/local/share/custom will be copied (and override) the community plugins within the image.
+Place a plugin directory in the directory you have mounted to /usr/local/share/custom.  By default the image contains the 0.5 release version of the [official plugins](https://github.com/asphyxia-core/plugins).  Any plugins that get mounted into /usr/local/share/custom will be copied (and override) the community plugins within the image.  If ASPHYXIA_PLUGIN_REPLACE is defined, then the community plugins will not be included and it will rely on the plugins provided in custom.
 
 ## Savedata Override ##
 Place your savedata directory in the directory you have mounted to /usr/local/share/custom
@@ -64,11 +66,12 @@ services:
     build: .
     environment:
       - ASPHYXIA_LISTENING_PORT=
-      - ASPHYXIA_BINDING_HOST=
+      - ASPHYXIA_BINDING_HOST=0.0.0.0
       - ASPHYXIA_MATCHING_PORT=
       - ASPHYXIA_DEV_MODE=
       - ASPHYXIA_PING_IP=
       - ASPHYXIA_SAVEDATA_DIR=
+      - ASPHYXIA_PLUGIN_REPLACE=
     ports:
       - "8083:8083"
       - "5700:5700"
