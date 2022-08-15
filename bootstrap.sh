@@ -23,10 +23,18 @@ fi
 
 # Setting up plugins
 rm -rf /usr/local/share/asphyxia/plugins/*
-cp -r /usr/local/share/asphyxia/plugins_default/* /usr/local/share/asphyxia/plugins/
 if [ -d "/usr/local/share/custom/plugins" ]; then
-	echo "LOG: Custom plugins FOUND; Setting up symbol link to custom plugins"
+    if [ ! -z "${ASPHYXIA_PLUGIN_REPLACE}" ]; then
+        echo "LOG: ASPHYXIA_PLUGIN_REPLACE defined, not copying default plugins"
+    else
+        echo "LOG: Adding default plugins"
+        cp -r /usr/local/share/asphyxia/plugins_default/* /usr/local/share/asphyxia/plugins/
+    fi
+	echo "LOG: Custom plugins FOUND; Adding custom plugins"
 	cp -r /usr/local/share/custom/plugins/* /usr/local/share/asphyxia/plugins/
+else
+    echo "LOG: Custom plugins NOT FOUND; Adding default plugins"
+    cp -r /usr/local/share/asphyxia/plugins_default/* /usr/local/share/asphyxia/plugins/
 fi
 
 [ ! -z "${ASPHYXIA_LISTENING_PORT}" ] && LISTENING_PORT="--port ${ASPHYXIA_LISTENING_PORT}" || LISTENING_PORT=""
