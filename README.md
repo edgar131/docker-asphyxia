@@ -53,7 +53,7 @@ ports:
       - "5700:5700"
 ```
 
-While the default configuration that Asphyxia generates specifies the binding host as "localhost", I have found that in docker it typically doesn't work unless specified as "**0.0.0.0**".  If you aren't able to access the web GIU after running the container, you should either specify the **ASPHYXIA_BINDING_HOST** environment variable as "**0.0.0.0**" or change the binding host in your custom mounted config.ini as "**0.0.0.0**".
+While the default configuration that Asphyxia generates specifies the binding host as "localhost", I have found that in docker it typically doesn't work unless specified as "**0.0.0.0**".  If you aren't able to access the web GUI after running the container, you should either specify the **ASPHYXIA_BINDING_HOST** environment variable as "**0.0.0.0**" or change the binding host in your custom mounted config.ini as "**0.0.0.0**".
 
 ## Sample docker-compose.yml ##
 [docker-compose.yml](https://github.com/edgar131/docker-asphyxia/blob/master/docker-compose.yml)
