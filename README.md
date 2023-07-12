@@ -1,7 +1,7 @@
 # Asphyxia Docker Image #
 [Asphyxia](https://asphyxia-core.github.io/)
 
-Latest is running 1.40 of [Asphyxia](https://asphyxia-core.github.io/) and 0.5 of the [Official Plugins](https://github.com/asphyxia-core/plugins)
+Latest is running 1.50 of [Asphyxia](https://asphyxia-core.github.io/) and 0.5 of the [Official Plugins](https://github.com/asphyxia-core/plugins)
 
 ## Source ##
 [github](https://github.com/edgar131/docker-asphyxia)
