@@ -8,11 +8,11 @@ Latest is running 1.50 of [Asphyxia](https://asphyxia-core.github.io/) and 0.5 o
 
 ## Usage ##
 ```
-$ docker-compose up
+$ docker compose up
 ```
 Or to run detached:
 ```
-$ docker-compose up -d
+$ docker compose up -d
 ```
 
 ## Environment Variables ##
@@ -27,7 +27,7 @@ The following variables are passed as arguments to Asphyxia and will override an
 - **ASPHYXIA_PLUGIN_REPLACE** - Setting this will cause it to ONLY use the custom plugins provided from the mounted plugins directory.
 
 ## Mount Point ##
-The local mount point for overrides within the container is /usr/local/share/custom.  If you wish to store additional plugins, config and savedata outside of the container you should specify a volume such as:
+The local mount point for overrides within the container is /usr/local/share/custom.  If you wish to store additional plugins, config and savedata outside the container you should specify a volume such as:
 ```
 volumes:
       - "./asphyxia:/usr/local/share/custom"
@@ -36,16 +36,16 @@ volumes:
 You can replace "./asphyxia" with any directory on your machine that contains your config.ini/plugins/savedata directories.
 
 ## Config Override ##
-Place a Asphyxia config.ini file in the directory you have mounted to /usr/local/share/custom
+Place an Asphyxia config.ini file in the directory you have mounted to /usr/local/share/custom
 
 ## Plugin Override ##
-Place a plugin directory in the directory you have mounted to /usr/local/share/custom.  By default the image contains the 0.5 release version of the [official plugins](https://github.com/asphyxia-core/plugins).  Any plugins that get mounted into /usr/local/share/custom will be copied (and override) the community plugins within the image.  If ASPHYXIA_PLUGIN_REPLACE is defined, then the community plugins will not be included and it will rely on the plugins provided in custom.
+Place a plugins directory in the directory you have mounted to /usr/local/share/custom. By default, the image contains the 0.5 release version of the [official plugins](https://github.com/asphyxia-core/plugins).  Any plugins that get mounted into /usr/local/share/custom will be copied (and override) the community plugins within the image.  If ASPHYXIA_PLUGIN_REPLACE is defined, then the community plugins will not be included, and it will rely on the plugins provided in custom.
 
 ## Savedata Override ##
 Place your savedata directory in the directory you have mounted to /usr/local/share/custom
 
 ## Notes ##
-Always ensure you open up both the listening port and the matching port (if you intend to do any matching) or you will not be able to access the web GIU or utilize Asphyxia in general.
+Always ensure you open up both the listening port and the matching port (if you intend to do any matching) or you will not be able to access the web GUI or utilize Asphyxia in general.
 Example:
 ```
 ports:
